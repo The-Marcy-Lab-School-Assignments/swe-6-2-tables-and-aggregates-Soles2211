@@ -32,13 +32,23 @@
 -- ============================================================
 -- Step 1: Create the database
 -- ============================================================
-
-
+DROP DATABASE IF EXISTS products_db;
+CREATE DATABASE products_db;
+\c products_db
 
 -- ============================================================
 -- Step 2: Create the table
 -- ============================================================
+DROP TABLE IF EXISTS products;
 
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    product_name TEXT NOT NULL UNIQUE,
+    product_type TEXT NOT NULL,
+    expiration_date DATE NOT NULL,
+    price NUMERIC(5, 2) NOT NULL,
+
+);
 
 
 -- ============================================================
